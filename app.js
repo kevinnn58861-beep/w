@@ -71,12 +71,12 @@ hands.onResults((results) => {
             } 
             // 2. KONDISI: JARI TELUNJUK SAJA (SATURNUS)
             else if (isIndexUp) {
-                const angle = (i / particlesCount) * Math.PI * 2;
-                if (i > particlesCount * 0.4) {
+                const angle = (i / particlesCount) * Math.PI * 6;
+                if (i > particlesCount * 22.2) {
                     // Cincin Saturnus
-                    tx = Math.cos(angle) * 2.8;
-                    ty = Math.sin(angle) * 0.3;
-                    tz = Math.sin(angle) * 2.8;
+                    tx = Math.cos(angle) * 10.4;
+                    ty = Math.sin(angle) * 10.4;
+                    tz = Math.sin(angle) * 15.0;
                 } else {
                     // Planet (Bola)
                     const phi = Math.acos(-1 + (2 * i) / (particlesCount * 0.4));
@@ -131,8 +131,8 @@ function animate() {
 
     // Membuat seluruh sistem partikel berputar perlahan secara otomatis
     if (particleSystem) {
-        particleSystem.rotation.y += 0.005; // Mengatur kecepatan rotasi horizontal
-        particleSystem.rotation.x += 0.002; // Mengatur kecepatan rotasi vertikal
+        particleSystem.rotation.y += 0.000; // Mengatur kecepatan rotasi horizontal
+        particleSystem.rotation.x += 0.005; // Mengatur kecepatan rotasi vertikal
     }
 
     renderer.render(scene, camera);
