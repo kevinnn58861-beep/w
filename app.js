@@ -66,8 +66,8 @@ hands.onResults((results) => {
             if (isIndexUp && isMiddleUp) {
                 const ratio = i / particlesCount;
                 tx = (ratio - 0.5) * 4; 
-                ty = -Math.abs(tx) * 1.2 + 1.5; // Bentuk segitiga moncong pesawat
-                tz = (i % 2 === 0) ? 0.3 : -0.3;
+                ty = -Math.abs(tx) * 3.5 + 3.5; // Bentuk pesawat
+                tz = (i % 2 === 0) ? 1.2 : -1.2;
             } 
             // 2. KONDISI: JARI TELUNJUK SAJA (SATURNUS)
             else if (isIndexUp) {
@@ -128,6 +128,13 @@ cameraInput.start();
 
 function animate() {
     requestAnimationFrame(animate);
+
+    // Membuat seluruh sistem partikel berputar perlahan secara otomatis
+    if (particleSystem) {
+        particleSystem.rotation.y += 0.005; // Mengatur kecepatan rotasi horizontal
+        particleSystem.rotation.x += 0.002; // Mengatur kecepatan rotasi vertikal
+    }
+
     renderer.render(scene, camera);
 }
 animate();
